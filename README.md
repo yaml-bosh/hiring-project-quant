@@ -13,7 +13,7 @@ Secondary reserve is also known as aFRR (automatic frequency restoration reserve
 Reserve activation patterns are very important in power trading as they influence the cost of imbalances, i.e. differences between the contracted positions and the physically produced/consumed energy in market parties' portfolios. High up-regulation reserve activations for example may lead to high imbalance prices.
 
 ### The task
-Create a prediction model to forecast the aFRR activation on a minute-by-minute level for the next 8 settlement periods.
+Create a prediction model to forecast the aFRR activation for the next 8 settlement periods, updating every minute.
 
 A settlement period or Market Time Unit (MTU) is a period of 15 minutes inside which imbalances are settled. 
 We define `t0` as the current settlement period, i.e. the MTU starting at current time rounded down to nearest 15min and ending at current time rounded up to nearest 15min. For example, if now is 09:07 then `t0` will be the period between 09:00 and 09:15. 
@@ -24,8 +24,12 @@ The model should update its prediction at least every minute, based on live data
 
 Please also add a method that allows to backtest the performance.
 
-You can see an example (very simple) implementation in `examples/persistence.py` where we use the average of the last 100 minutes of activations to predict the next 8 periods. This also shows you an example output format for the prediction model as well as the backtesting function.
+You can see an example (very simple) implementation in `examples/persistence.py` where we use the average of the last 100 minutes of activations to predict the next 8 periods. This also shows you an example output format for the prediction model as well as the backtesting function. Please take this as inspiration but feel free to deviate from it as much as you like.
 
+### Evaluation
+This exercise is purely an excuse to talk about how you reason through such a problem and structure some code. You will not be evaluated on accuracy of the solution or completeness, so please do not use more than three hours on this exercise. We are more interested in whether you can find interesting and creative ways to solve the problem.
+
+You are welcome to use AI to help you write the code if you prefer. But please be aware that you might be asked questions about code structure and choices you made, and we expect you to be able to reason about them.
 
 ### The data
 You do not have to use other data sources in addition to the first one, but you are more than welcome to!
